@@ -1,4 +1,5 @@
 import type { FC } from 'react';
+import { Grid, Typography } from '@material-ui/core';
 import { OutboundLink } from 'gatsby-plugin-google-gtag';
 
 const Footer: FC<{}> = () => {
@@ -14,16 +15,16 @@ const Footer: FC<{}> = () => {
     <OutboundLink href="https://www.gatsbyjs.org/">GatsbyJS.</OutboundLink>
   );
   return (
-    <section className="resume-section p-3 p-lg-5 d-flex align-items-center">
-      <p>
+    <Grid container>
+      <Typography paragraph variant="body2">
         {`© 2020 `}
         {GitHubLink}
         {`. Hosted on `}
         {GitHubPages}
         {`. Based on `}
         {GatsbyJSLink}
-      </p>
-    </section>
+      </Typography>
+    </Grid>
   );
 };
 
