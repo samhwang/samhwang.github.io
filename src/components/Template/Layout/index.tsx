@@ -1,7 +1,7 @@
 import type { FC } from 'react';
+import { CssBaseline, Container, Grid } from '@material-ui/core';
 import SEO from '../SEO';
 import Footer from '../Footer';
-import '../../../assets/sass/resume.scss';
 import '../../Icons';
 import { useSiteMetadata } from '../../../hooks';
 
@@ -15,15 +15,18 @@ const Layout: FC<LayoutProps> = ({ children, title, description }) => {
 
   return (
     <>
-      <SEO
-        title={title}
-        description={description}
-        defaultFallback={defaultFallback}
-      />
-      <div className="main-body">
-        <div className="container-fluid p-0">{children}</div>
-        <Footer />
-      </div>
+      <CssBaseline />
+      <Container maxWidth="md">
+        <SEO
+          title={title}
+          description={description}
+          defaultFallback={defaultFallback}
+        />
+        <Grid container>
+          {children}
+          <Footer />
+        </Grid>
+      </Container>
     </>
   );
 };
