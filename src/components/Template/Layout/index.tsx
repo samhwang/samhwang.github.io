@@ -1,5 +1,6 @@
 import type { FC } from 'react';
 import { CssBaseline, Container, Grid } from '@material-ui/core';
+import Header from '../Header';
 import SEO from '../SEO';
 import Footer from '../Footer';
 import '../../Icons';
@@ -16,16 +17,15 @@ const Layout: FC<LayoutProps> = ({ children, title, description }) => {
   return (
     <>
       <CssBaseline />
+      <SEO
+        title={title}
+        description={description}
+        defaultFallback={defaultFallback}
+      />
+      <Header />
       <Container maxWidth="md">
-        <SEO
-          title={title}
-          description={description}
-          defaultFallback={defaultFallback}
-        />
-        <Grid container>
-          {children}
-          <Footer />
-        </Grid>
+        <Grid container>{children}</Grid>
+        <Footer />
       </Container>
     </>
   );
