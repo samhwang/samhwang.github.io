@@ -2,7 +2,6 @@ import type { FC } from 'react';
 import { usePersonalInformationData } from '../../../hooks';
 import Skill from './Skill';
 import type { SkillProps } from './Skill';
-import LangIcon from '../../Icons/LangIcon';
 
 export type TechStackMetadata = string[];
 export type SkillsMetadata = SkillProps[];
@@ -13,7 +12,7 @@ interface SkillsProp {
 }
 
 const SkillSection: FC = () => {
-  const { skills, techStack }: SkillsProp = usePersonalInformationData();
+  const { skills }: SkillsProp = usePersonalInformationData();
 
   return (
     <section
@@ -26,11 +25,6 @@ const SkillSection: FC = () => {
         {skills.map(({ title, description }) => (
           <Skill title={title} description={description} key={title} />
         ))}
-        <ul className="list-inline dev-icons">
-          {techStack.map((language) => (
-            <LangIcon name={language} key={language} />
-          ))}
-        </ul>
       </div>
     </section>
   );

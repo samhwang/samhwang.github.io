@@ -17,7 +17,6 @@ describe('Skill Section Component', () => {
           description: ['asdfasdf1234'],
         },
       ],
-      techStack: ['js'],
     });
     const SkillSectionComponent = <SkillSection />;
     const tree = render(SkillSectionComponent);
