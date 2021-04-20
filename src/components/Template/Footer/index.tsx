@@ -1,30 +1,49 @@
 import type { FC } from 'react';
-import { Grid, Typography } from '@material-ui/core';
+import {
+  Container,
+  Typography,
+  makeStyles,
+  createStyles,
+} from '@material-ui/core';
+import type { Theme } from '@material-ui/core';
 import { OutboundLink } from 'gatsby-plugin-google-gtag';
 
-const Footer: FC<{}> = () => {
+const useStyles = makeStyles((theme: Theme) =>
+  createStyles({
+    footer: {
+      padding: theme.spacing(3, 2),
+      marginTop: 'auto',
+    },
+  })
+);
+
+const Footer: FC = () => {
+  const classes = useStyles();
   const GitHubLink = (
     <OutboundLink href="https://github.com/samhwang">Sam Huynh</OutboundLink>
   );
 
   const GitHubPages = (
-    <OutboundLink href="https://pages.github.com/">GitHub Pages</OutboundLink>
+    <OutboundLink href="https://pages.github.com/">GitHub Pages.</OutboundLink>
   );
 
   const GatsbyJSLink = (
-    <OutboundLink href="https://www.gatsbyjs.org/">GatsbyJS.</OutboundLink>
+    <OutboundLink href="https://www.gatsbyjs.org/">GatsbyJS</OutboundLink>
   );
+
   return (
-    <Grid container>
-      <Typography paragraph variant="body2">
-        {`© 2020 `}
-        {GitHubLink}
-        {`. Hosted on `}
-        {GitHubPages}
-        {`. Based on `}
-        {GatsbyJSLink}
-      </Typography>
-    </Grid>
+    <footer className={classes.footer}>
+      <Container maxWidth="md">
+        <Typography paragraph variant="body2">
+          {`© 2020 `}
+          {GitHubLink}
+          {`. Built with `}
+          {GatsbyJSLink}
+          {` and hosted on `}
+          {GitHubPages}
+        </Typography>
+      </Container>
+    </footer>
   );
 };
 

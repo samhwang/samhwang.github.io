@@ -30,6 +30,7 @@ function Desktop({ menuItems }: { menuItems: NavItem[] }) {
       <Typography className={classes.title} variant="h6">
         Sam Huynh
       </Typography>
+      <Grid className={classes.emptySpace} />
       {menuItems.map(({ name, link }) => (
         <Typography key={name} variant="h6">
           <Link to={link} className={classes.link}>
@@ -37,7 +38,6 @@ function Desktop({ menuItems }: { menuItems: NavItem[] }) {
           </Link>
         </Typography>
       ))}
-      <Grid className={classes.emptySpace} />
     </>
   );
 }

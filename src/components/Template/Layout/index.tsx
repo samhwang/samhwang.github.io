@@ -1,5 +1,12 @@
 import type { FC } from 'react';
-import { CssBaseline, Container, Grid } from '@material-ui/core';
+import {
+  CssBaseline,
+  Container,
+  Grid,
+  makeStyles,
+  createStyles,
+} from '@material-ui/core';
+import type { Theme } from '@material-ui/core';
 import Header from '../Header';
 import SEO from '../SEO';
 import Footer from '../Footer';
@@ -11,11 +18,26 @@ export type LayoutProps = {
   description: string;
 };
 
+const useStyles = makeStyles((theme: Theme) =>
+  createStyles({
+    root: {
+      display: 'flex',
+      flexDirection: 'column',
+      minHeight: '100vh',
+    },
+    main: {
+      marginTop: theme.spacing(8),
+      marginBottom: theme.spacing(2),
+    },
+  })
+);
+
 const Layout: FC<LayoutProps> = ({ children, title, description }) => {
   const defaultFallback = useSiteMetadata();
+  const classes = useStyles();
 
   return (
-    <>
+    <div className={classes.root}>
       <CssBaseline />
       <SEO
         title={title}
@@ -23,11 +45,13 @@ const Layout: FC<LayoutProps> = ({ children, title, description }) => {
         defaultFallback={defaultFallback}
       />
       <Header />
-      <Container maxWidth="md">
-        <Grid container>{children}</Grid>
-        <Footer />
+      <Container maxWidth="md" component="main" className={classes.main}>
+        <Grid container alignItems="center" justify="center" direction="column">
+          {children}
+        </Grid>
       </Container>
-    </>
+      <Footer />
+    </div>
   );
 };
 
