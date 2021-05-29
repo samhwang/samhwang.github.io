@@ -18,21 +18,13 @@ const Experiences: FC = () => {
       <div className="w-100">
         <h2 className="mb-5">Experience</h2>
         {experience.map(
-          ({
-            title,
-            companyName,
-            description,
-            duration,
-            techIcons,
-            technologies,
-          }) => (
+          ({ title, companyName, description, duration, technologies }) => (
             <JobDescription
               key={companyName}
               title={title}
               companyName={companyName}
               description={description}
               duration={duration}
-              techIcons={techIcons}
               technologies={technologies}
             />
           )

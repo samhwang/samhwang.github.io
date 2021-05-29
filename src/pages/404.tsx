@@ -1,4 +1,6 @@
 import type { FC } from 'react';
+import { Grid, Typography } from '@material-ui/core';
+import { Link } from 'gatsby';
 import { Layout } from '../components/Template';
 
 const IndexPage: FC = () => (
@@ -6,19 +8,30 @@ const IndexPage: FC = () => (
     title="Error 404: Page not found"
     description="Error 404: Page not found"
   >
-    <section className="resume-section p-3 p-lg-5 d-flex align-items-center">
-      <header className="major">
-        <h2>Error 404: Page not found.</h2>
-        <h3>
+    <Grid container>
+      <Grid item md={12}>
+        <Typography paragraph variant="h1">
+          Error 404
+        </Typography>
+      </Grid>
+      <Grid item md={12}>
+        <Typography paragraph variant="h2">
+          Page not found.
+        </Typography>
+      </Grid>
+      <Grid item md={12}>
+        <Typography paragraph variant="h4">
           It seems like you&apos;ve hit a dead end. There&apos;s nothing to see
-          here.
-        </h3>
-        <h4>
+          here. The sadness...
+        </Typography>
+      </Grid>
+      <Grid item md={12}>
+        <Typography paragraph variant="h4">
           {`Please go back to the `}
-          <a href="/">Home page.</a>
-        </h4>
-      </header>
-    </section>
+          <Link to="/">Home page.</Link>
+        </Typography>
+      </Grid>
+    </Grid>
   </Layout>
 );
 

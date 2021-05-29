@@ -52,15 +52,25 @@ module.exports = {
       },
     },
     {
-      resolve: `gatsby-plugin-google-fonts`,
+      resolve: `gatsby-theme-material-ui`,
       options: {
-        fonts: [
-          `Muli:400i,800i,400,800`,
-          `Saira Extra Condensed:500,700`,
-          `Roboto:300,400,500,700`,
-        ],
+        fonts: {
+          google: [
+            {
+              family: `Muli`,
+              variants: [`400i`, `800i`, `400`, `800`],
+            },
+            {
+              family: `Saira Extra Condensed`,
+              variants: [`500`, `700`],
+            },
+            {
+              family: `Roboto`,
+              variants: [`300`, `400`, `500`, `700`],
+            },
+          ],
+        },
       },
-      display: 'swap',
     },
   ],
 };

@@ -11,7 +11,6 @@ export default function usePersonalInformationData() {
             address
             email
             socialLinks {
-              icon
               name
               url
             }
@@ -31,14 +30,12 @@ export default function usePersonalInformationData() {
               companyName
               description
               duration
-              techIcons
               technologies
             }
             skills {
               title
               description
             }
-            techStack
           }
         }
       }
